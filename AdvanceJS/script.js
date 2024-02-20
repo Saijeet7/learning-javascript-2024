@@ -91,3 +91,195 @@ Generators: For handling streams of data.
 Observables: For complex data flows with multiple subscribers.
 Remember that choosing the right approach depends on the specific needs of your application and the complexity of the asynchronous operations involved.
 */
+
+// console.log("one");
+// console.log("two");
+
+// setTimeout(() => {
+//   console.log("hello");
+// }, 2000);
+
+// console.log("three");
+// console.log("four");
+
+// // Call back function
+// function sum(a, b) {
+//   console.log(a + b);
+// }
+
+// function calculator(a, b, sumCallback) {
+//   sumCallback(a, b);
+// }
+
+// calculator(1, 2, (a, b) => {
+//   console.log(a + b);
+// });
+
+// const hello = () => {
+//   console.log("hello");
+// };
+
+// setTimeout(hello, 3000);
+
+// function getData(dataID, getNextData) {
+//   setTimeout(() => {
+//     console.log("data", dataID);
+//     if (getNextData) {
+//       getNextData();
+//     }
+//   }, 2000);
+// }
+// Callback Hell
+// getData(1, () => {
+//   getData(2, () => {
+//     getData(3);
+//   });
+// });
+
+// // Promises
+// let promise = new Promise((resolve, reject) => {
+//   console.log("Promise");
+//   resolve(123);
+//   reject(false);
+// });
+
+// function getData(dataId, getNextData) {
+//   return new Promise((reslove, reject) => {
+//     setTimeout(() => {
+//       console.log("data", dataId);
+//       reslove("success");
+//       if (getNextData) {
+//         getNextData();
+//       }
+//     }, 5000);
+//   });
+// }
+
+//  Use of promises
+// const getPromise = () => {
+//   return new Promise((reslove, reject) => {
+//     console.log("Here is promise");
+//     reslove("success");
+//     // reject("network error");
+//   });
+// };
+
+// let promise = getPromise();
+// promise.then((res) => {
+//   console.log("Promise fullfilled", res);
+// });
+// promise.catch((err) => {
+//   console.log("Rejected", err);
+// });
+
+// Promise Chain
+
+function asynFunction1() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("some data1");
+      resolve("success");
+    }, 4000);
+  });
+}
+function asynFunction2() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("some data2");
+      resolve("success");
+    }, 4000);
+  });
+}
+
+console.log("fetching data1...");
+asynFunction1().then((res) => {
+  console.log(res);
+  console.log("fetching data2...");
+  asynFunction2().then((res) => {});
+});
+
+//
+
+function getData(dataID, getNextData) {
+  return new Promise((reslove, reject) => {
+    setTimeout(() => {
+      console.log("data", dataID);
+      reslove("success");
+      if (getNextData) {
+        getNextData();
+      }
+    }, 3000);
+  });
+}
+// Promise CHain
+getData(1)
+  .then((res) => {
+    return getData(2);
+  })
+  .then((res) => {
+    return getData(3);
+  })
+  .then((res) => {
+    console.log(res);
+  });
+
+Async
+function api() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("weather data");
+      resolve(200);
+    }, 2000);
+  });
+}
+
+async function getWeatherData() {
+  await api();
+  await api();
+}
+
+async function getAllData() {
+  await getData(1);
+  await getData(2);
+  await getData(3);
+  await getData(4);
+}
+
+(async () => {
+  await getData(1);
+  await getData(2);
+  await getData(3);
+  await getData(4);
+})();
+
+/*
+
+Promises: Promises are a way to handle asynchronous operations in JavaScript, making it easier to manage complex workflows. When working with promises, remember the following:
+
+- then(): This method is used to handle the fulfillment of a promise. It takes a callback function as its argument, which will be invoked once the promise is fulfilled. This allows you to perform actions or continue the workflow after the promise resolves successfully.
+
+- catch(): When a promise is rejected (encounters an error), the catch() method is used to handle the error. It takes a callback function that will be executed if the promise is rejected, allowing you to gracefully handle errors in your asynchronous code.
+
+
+
+Promise Chain: Promises can be chained together using the then() method, allowing you to create a sequence of asynchronous operations. Each then() call returns a new promise, which can be further chained with additional then() calls or a catch() to handle errors.
+
+
+
+Async/Await: Async functions and the await keyword provide a more intuitive way to work with asynchronous code, especially when dealing with promises. Here's how they work:
+
+- async function: An async function is a function that operates asynchronously via the event loop. It always returns a promise, which resolves with the value returned by the function or rejects with an error thrown from within the function.
+
+await: The await keyword is used inside async functions to pause the execution of the function until a promise is settled (either fulfilled or rejected). This allows you to write asynchronous code that looks and behaves more like synchronous code, making it easier to understand and maintain.
+
+
+
+IIFE (Immediately Invoked Function Expression): IIFE is a JavaScript design pattern that allows you to create a function and immediately execute it. Here's how it works:
+
+- An IIFE is defined as a function expression wrapped in parentheses ( ) followed by an additional set of parentheses ().
+
+- The outer parentheses create a function expression, and the inner parentheses immediately invoke the function, executing its code.
+
+- IIFEs are commonly used to create a new scope for variables, avoiding polluting the global namespace, and for executing code immediately without the need for a function name.
+
+ */
