@@ -8,15 +8,18 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #ffbe98;
+  background: #FEECE2;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .container {
-  background: #feece2;
+  background: #fff;
   padding: 3rem;
   border-radius: 1rem;
   width: 40vh;
-  min-height: 45vh;
 }
 
 form {
