@@ -37,7 +37,9 @@ const updateExchnageRate = async () => {
   let data = await response.json();
   let rate = data[toCurr.value.toLowerCase()];
   let finalAmount = amtValue * rate;
-  msg.innerText = `${amtValue} ${fromCurr.value} = ${finalAmount.toFixed(2)} ${toCurr.value}`;
+  msg.innerText = `${amtValue} ${fromCurr.value} = ${finalAmount.toFixed(2)} ${
+    toCurr.value
+  }`;
   console.log(finalAmount);
 };
 
