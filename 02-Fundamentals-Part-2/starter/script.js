@@ -31,15 +31,21 @@ console.log(age2);
 const calcAge3 = (birthYear) => 2024 - birthYear;
 console.log(calcAge3(2007));
 
-const yearsUntilRetirement = (birthYear, firstname) => {
-  const age = 2024 - birthYear;
-  const retirement = 65 - age;
-  //   return retirement;
-  return `${firstname} retires in ${retirement} years`;
+const calcAge = function (birthYear) {
+  return 2024 - birthYear;
 };
 
-console.log(yearsUntilRetirement(1999, "Saijeet"));
+const yearsUntilRetirement = (birthYear, firstname) => {
+  const age = calcAge(birthYear);
+  const retirement = 65 - age;
+
+  if (retirement > 0) {
+    return `${firstname} retires in ${retirement} years`;
+  } else {
+    return `${firstname} has already been retired`;
+  }
+  //   return retirement;
+};
+
 console.log(yearsUntilRetirement(2003, "Saikriti"));
-
-
-
+console.log(yearsUntilRetirement(1919, "Saijeet"));
