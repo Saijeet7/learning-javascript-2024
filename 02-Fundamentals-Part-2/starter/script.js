@@ -161,34 +161,64 @@
 //   `John has ${john.friends.length} friends, and his best friend is ${john.friends[0]}`
 // );
 
-const john = {
-  firstName: "John",
-  lastName: "Cena",
-  birthyear: 1980,
-  job: "wrestler",
-  friends: ["Michael", "UnderTaker", "Edge"],
-  hasWrestlingLicence: true,
-  calcAge1: (birthyear) => {
-    return 2024 - birthyear;
-  },
-  calcAge2: function () {
-    return 2024 - this.birthyear;
-  },
-  calcAge3: function () {
-    this.age = 2024 - this.birthyear;
-    return this.age;
-  },
-  getSummary: function () {
-    this.calcAge3();
-    return `John is ${this.age} year old ${this.job} and ${
-      this.hasWrestlingLicence ? "has a" : "has no"
-    } driver license.`;
-  },
-}; //Object literal syntax
+// const john = {
+//   firstName: "John",
+//   lastName: "Cena",
+//   birthyear: 1980,
+//   job: "wrestler",
+//   friends: ["Michael", "UnderTaker", "Edge"],
+//   hasWrestlingLicence: true,
+//   calcAge1: (birthyear) => {
+//     return 2024 - birthyear;
+//   },
+//   calcAge2: function () {
+//     return 2024 - this.birthyear;
+//   },
+//   calcAge3: function () {
+//     this.age = 2024 - this.birthyear;
+//     return this.age;
+//   },
+//   getSummary: function () {
+//     this.calcAge3();
+//     return `John is ${this.age} year old ${this.job} and ${
+//       this.hasWrestlingLicence ? "has a" : "has no"
+//     } driver license.`;
+//   },
+// }; //Object literal syntax
 
-console.log(john.calcAge2());
-console.log(john["calcAge2"]());
-console.log(john.getSummary());
-
+// console.log(john.calcAge2());
+// console.log(john["calcAge2"]());
+// console.log(john.getSummary());
 
 // Exercise 7
+
+const mark = {
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
+
+const john = {
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
+
+mark.calcBMI();
+john.calcBMI();
+
+mark.bmi > john.bmi
+  ? console.log(
+      `${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})!`
+    )
+  : console.log(
+      `${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})!`
+    );
