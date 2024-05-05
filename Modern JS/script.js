@@ -30,44 +30,96 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = "20:00",
+    address,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
 };
 
-const arr = [2, 3, 4];
-const [x, y, z] = arr;
-console.log(x, y, z);
+restaurant.orderDelivery({
+  time: "22:30",
+  address: "Via del Sole, 21",
+  mainIndex: 2,
+  starterIndex: 2,
+});
 
-let [first, , second] = restaurant.categories;
-console.log(first, second);
 
-// Switching variables
-[first, second] = [second, first];
-console.log(first, second);
+restaurant.orderDelivery({
+  address: 'Via del Sole, 21',
+  starterIndex: 1,
+})
 
-const [starter, main] = restaurant.order(2, 0);
-console.log(starter, main);
+// destructuring objects
 
-// Nested array
-const nested = [2, 4, [5, 6]];
-const [i, , j] = nested;
-console.log(i, j);
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
 
-//Nested Destructuring
-const [k, , [l, m]] = nested;
-console.log(k, l, m);
+console.log(restaurantName, hours, tags);
 
-// default values
-const [p = 1, q = 1, r = 1] = [8, 9];
-console.log(p, q, r);
+const { menu, starterMenu: starter = [] } = restaurant;
+console.log(menu, starter);
 
-const ratings = [
-  ["rating", 4.19],
-  ["ratingsCount", 144584],
-];
+// mutating objects
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+({ a, b } = obj);
+console.log(a, b);
 
-const [[, rating], [, ratingsCount]] = ratings;
-console.log(rating, ratingsCount);
+// Nested Objects
+const {
+  fri: { open: o, close: c },
+} = openingHours;
+console.log(o, c);
 
-const ratingStars = [63405, 1808];
-const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
+// destructuring array
+// const arr = [2, 3, 4];
+// const [x, y, z] = arr;
+// console.log(x, y, z);
 
-console.log(fiveStarRatings, oneStarRatings, threeStarRatings);
+// let [first, , second] = restaurant.categories;
+// console.log(first, second);
+
+// // Switching variables
+// [first, second] = [second, first];
+// console.log(first, second);
+
+// const [starter, main] = restaurant.order(2, 0);
+// console.log(starter, main);
+
+// // Nested array
+// const nested = [2, 4, [5, 6]];
+// const [i, , j] = nested;
+// console.log(i, j);
+
+// //Nested Destructuring
+// const [k, , [l, m]] = nested;
+// console.log(k, l, m);
+
+// // default values
+// const [p = 1, q = 1, r = 1] = [8, 9];
+// console.log(p, q, r);
+
+// const ratings = [
+//   ["rating", 4.19],
+//   ["ratingsCount", 144584],
+// ];
+
+// const [[, rating], [, ratingsCount]] = ratings;
+// console.log(rating, ratingsCount);
+
+// const ratingStars = [63405, 1808];
+// const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
+
+// console.log(fiveStarRatings, oneStarRatings, threeStarRatings);
