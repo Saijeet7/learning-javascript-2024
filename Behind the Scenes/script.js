@@ -65,36 +65,95 @@
 // console.log(y === window.y);
 // console.log(z === window.z);
 
-console.log(this);
+// console.log(this);
 
-const calcAge = function (birthYear) {
-  console.log(20 - birthYear);
-  console.log(this);
+// const calcAge = function (birthYear) {
+//   console.log(20 - birthYear);
+//   console.log(this);
+// };
+
+// calcAge(1999);
+
+// const calcAgeArrow = (birthYear) => {
+//   console.log(20 - birthYear);
+//   console.log(this);
+// };
+
+// calcAgeArrow(1999);
+
+// const jonas = {
+//   year: 1991,
+//   calcAge: function () {
+//     console.log(this);
+//     console.log(2024 - this.year);
+//   },
+// };
+
+// jonas.calcAge();
+
+// const matilda = {
+//   year: 2017,
+// };
+
+// matilda.calcAge = jonas.calcAge;
+// matilda.calcAge();
+
+// var firstName = "Matilda";
+
+// const jonas = {
+//   firstName: "Jonas",
+//   year: 1991,
+//   calcAge: function () {
+//     console.log(this);
+//     console.log(2024 - this.year);
+//     const isMillenial = () => {
+//       console.log(this);
+//       console.log(this.year >= 1981 && this.year <= 1996);
+//     };
+//     isMillenial();
+//   },
+//   greet: () => console.log(`Hey ${this.firstName} `),
+// };
+// jonas.greet();
+// jonas.calcAge();
+
+// // arguments keywords
+// const addExpr = function (a, b) {
+//   console.log(arguments);
+//   return a + b;
+// };
+// addExpr(2, 5);
+// addExpr(2, 5, 8, 12);
+
+// var addArrow = (a, b) => a + b;
+
+// Primitve Types
+let lastName = "William";
+let oldLastName = lastName;
+lastName = "David";
+console.log(lastName, oldLastName);
+
+// Reference Types
+const Jessica = {
+  firstName: "Jessica",
+  lastName: "William",
+  age: 27,
 };
 
-calcAge(1999);
+const marriedJessica = Jessica;
+marriedJessica.lastName = "Davis";
+console.log("Before Marriage:", Jessica);
+console.log("After Marriage:", marriedJessica);
 
-const calcAgeArrow = (birthYear) => {
-  console.log(20 - birthYear);
-  console.log(this);
+// Copying objects
+const Jessica2 = {
+  firstName: "Jessica",
+  lastName: "William",
+  age: 27,
 };
 
-calcAgeArrow(1999);
+const jessicaCopy = Object.assign({}, Jessica2);
+jessicaCopy.lastName = "Davis";
 
-const jonas = {
-  year: 1991,
-  calcAge: function () {
-    console.log(this);
-    console.log(2024 - this.year);
-  },
-};
-
-jonas.calcAge();
-
-const matilda = {
-  year: 2017,
-};
-
-matilda.calcAge = jonas.calcAge;
-matilda.calcAge();
-
+console.log("Before Marraige: ", Jessica2);
+console.log("After Marraige: ", jessicaCopy);
