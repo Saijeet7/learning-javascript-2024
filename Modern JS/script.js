@@ -504,7 +504,40 @@ console.log(rest.size);
 
 const arr = [1, 2];
 rest.set(arr, "Test");
-rest.set(document.querySelector('h1'), 'Heading');
+rest.set(document.querySelector("h1"), "Heading");
 console.log(rest);
 console.log(rest.size);
 console.log(rest.get(arr));
+
+const question = new Map([
+  ["question", "Whats is the best programming language in the world?"],
+  [1, "C"],
+  [2, "Java"],
+  [3, "JS"],
+  ["correct", 3],
+  [true, "Correct"],
+  [false, "Try Again"],
+]);
+
+console.log(question);
+
+// Convert object to mao
+console.log(Object.entries(openingHours));
+const hourMap = new Map(Object.entries(openingHours));
+console.log(hourMap);
+
+console.log(question.get("question"));
+for (const [key, value] of question) {
+  if (typeof key === "number") console.log(`Answer ${key}: ${value}`);
+}
+
+const answer = 3;
+console.log(answer);
+console.log(question.get(question.get("correct") === answer));
+
+// Convert map to array
+
+console.log([...question]);
+console.log(question.entries());
+console.log([...question.keys()]);
+console.log([...question.values()]);
