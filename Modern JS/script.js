@@ -474,70 +474,225 @@ GOOD LUCK 😀
 // console.log(staffUnique);
 // console.log(new Set("saijeet").size);
 
-const rest = new Map();
-rest.set("name", "Classico Italiano");
-rest.set(1, "Firenze, Italy");
+// const rest = new Map();
+// rest.set("name", "Classico Italiano");
+// rest.set(1, "Firenze, Italy");
 
-console.log(rest.set(2, "Lisbon, Portugal"));
+// console.log(rest.set(2, "Lisbon, Portugal"));
 
-rest
-  .set("categories", ["Italian", "Pizzeria", "Vegetarian", "Organic"])
-  .set("open", 11)
-  .set("close", 23)
-  .set(true, "We are open :D")
-  .set(false, "We are closed :(");
+// rest
+//   .set("categories", ["Italian", "Pizzeria", "Vegetarian", "Organic"])
+//   .set("open", 11)
+//   .set("close", 23)
+//   .set(true, "We are open :D")
+//   .set(false, "We are closed :(");
 
-console.log(rest);
+// console.log(rest);
 
-console.log(rest.get("name"));
-console.log(rest.get(true));
-console.log(rest.get(1));
+// console.log(rest.get("name"));
+// console.log(rest.get(true));
+// console.log(rest.get(1));
 
-const time = 21;
-console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
+// const time = 21;
+// console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
 
-console.log(rest.has("categories"));
-rest.delete(2);
-console.log(rest);
-console.log(rest.size);
-// rest.clear();
+// console.log(rest.has("categories"));
+// rest.delete(2);
+// console.log(rest);
+// console.log(rest.size);
+// // rest.clear();
 
-const arr = [1, 2];
-rest.set(arr, "Test");
-rest.set(document.querySelector("h1"), "Heading");
-console.log(rest);
-console.log(rest.size);
-console.log(rest.get(arr));
+// const arr = [1, 2];
+// rest.set(arr, "Test");
+// rest.set(document.querySelector("h1"), "Heading");
+// console.log(rest);
+// console.log(rest.size);
+// console.log(rest.get(arr));
 
-const question = new Map([
-  ["question", "Whats is the best programming language in the world?"],
-  [1, "C"],
-  [2, "Java"],
-  [3, "JS"],
-  ["correct", 3],
-  [true, "Correct"],
-  [false, "Try Again"],
-]);
+// const question = new Map([
+//   ["question", "Whats is the best programming language in the world?"],
+//   [1, "C"],
+//   [2, "Java"],
+//   [3, "JS"],
+//   ["correct", 3],
+//   [true, "Correct"],
+//   [false, "Try Again"],
+// ]);
 
-console.log(question);
+// console.log(question);
 
-// Convert object to mao
-console.log(Object.entries(openingHours));
-const hourMap = new Map(Object.entries(openingHours));
-console.log(hourMap);
+// // Convert object to map
+// console.log(Object.entries(openingHours));
+// const hourMap = new Map(Object.entries(openingHours));
+// console.log(hourMap);
 
-console.log(question.get("question"));
-for (const [key, value] of question) {
-  if (typeof key === "number") console.log(`Answer ${key}: ${value}`);
-}
+// console.log(question.get("question"));
+// for (const [key, value] of question) {
+//   if (typeof key === "number") console.log(`Answer ${key}: ${value}`);
+// }
 
-const answer = 3;
-console.log(answer);
-console.log(question.get(question.get("correct") === answer));
+// const answer = 3;
+// console.log(answer);
+// console.log(question.get(question.get("correct") === answer));
 
-// Convert map to array
+// // Convert map to array
 
-console.log([...question]);
-console.log(question.entries());
-console.log([...question.keys()]);
-console.log([...question.values()]);
+// console.log([...question]);
+// console.log(question.entries());
+// console.log([...question.keys()]);
+// console.log([...question.values()]);
+
+// Coding Challenge #3
+
+/* 
+Let's continue with our football betting app! This time, we have a map with a log of the events that happened during the game. The values are the events themselves, and the keys are the minutes in which each event happened (a football game has 90 minutes plus some extra time).
+
+1. Create an array 'events' of the different game events that happened (no duplicates)
+2. After the game has finished, is was found that the yellow card from minute 64 was unfair. So remove this event from the game events log.
+3. Print the following string to the console: "An event happened, on average, every 9 minutes" (keep in mind that a game has 90 minutes)
+4. Loop over the events and log them to the console, marking whether it's in the first half or second half (after 45 min) of the game, like this:
+      [FIRST HALF] 17: ⚽️ GOAL
+
+GOOD LUCK 😀
+*/
+
+// const gameEvents = new Map([
+//   [17, "⚽️ GOAL"],
+//   [36, "🔁 Substitution"],
+//   [47, "⚽️ GOAL"],
+//   [61, "🔁 Substitution"],
+//   [64, "🔶 Yellow card"],
+//   [69, "🔴 Red card"],
+//   [70, "🔁 Substitution"],
+//   [72, "🔁 Substitution"],
+//   [76, "⚽️ GOAL"],
+//   [80, "⚽️ GOAL"],
+//   [92, "🔶 Yellow card"],
+// ]);
+
+// const setEvents = [...new Set(gameEvents.values())];
+
+// const newEvents = [...gameEvents];
+// console.log(newEvents);
+// const events = new Set([]);
+// let totalTime = 0;
+
+// for (const [stamp, event] of newEvents) {
+//   events.add(event);
+//   totalTime += stamp;
+//   const half = stamp <= 45 ? "[FIRST HALF]" : "[SECOND HALF]";
+//   console.log(`${half} ${stamp} : ${event}`);
+// }
+
+// const average = totalTime / newEvents.length;
+// console.log(average);
+
+// console.log(events);
+
+// gameEvents.delete(64);
+// console.log(gameEvents);
+
+// console.log(
+//   `An event happened, on average, every ${90 / gameEvents.size} minutes`
+// );
+
+// // ------------- String
+// const airline = "TAP Nepal";
+// const plane = "A120";
+
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+// console.log("B737"[0]);
+
+// console.log(airline.length);
+
+// console.log(airline.indexOf("l"));
+// console.log(airline.indexOf("Nepal"));
+// console.log(airline.slice(4, 7));
+
+// console.log(airline.slice(0, airline.indexOf(" ")));
+// console.log(airline.slice(airline.lastIndexOf(" ") + 1));
+
+// console.log(airline.slice(1, -1));
+
+// const checkMiddleSeat = function (seat) {
+//   const seatPostion = seat.slice(-1);
+//   console.log(seatPostion);
+//   seatPostion == "B" ?? "E"
+//     ? console.log("Middle Seat")
+//     : console.log("Not Middle Seat");
+// };
+
+// checkMiddleSeat("11B");
+// checkMiddleSeat("23C");
+// checkMiddleSeat("3E");
+
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
+
+// // Fix capitalization in name
+// const passenger = "jOnaS";
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect =
+//   passengerLower[0].toLocaleUpperCase() + passengerLower.slice(1);
+// console.log(passengerCorrect);
+
+// // replacing
+// const priceGB = "288.964$";
+// const priceNP = priceGB.replace("$", "Rs").replace(".", ",");
+// console.log(priceNP);
+
+// const accouncement =
+//   "All passengers come to boarding door 23, Boadring door 23!";
+
+// console.log(accouncement.replace(/door/g, "gate"));
+
+// // Practice Exercise
+
+// const checkBaggage = function (items) {
+//   const baggage = items.toLowerCase();
+//   baggage.includes("knife") || baggage.includes("gun")
+//     ? console.log("Not allowed")
+//     : console.log("Welcome Aboard");
+// };
+
+// checkBaggage("I have a laptop, some Food and a pocket Knife");
+// checkBaggage("Socks and camera");
+// checkBaggage("Got some snacks and a gun for protection");
+
+// // split string
+// console.log("a+very+nice+strong".split("+"));
+// console.log("Saijeet Upadhyay".split(" "));
+
+// const [firstName, lastName] = "Saijeet Upadhyay".split(" ");
+
+// const newName = ["Mr.", firstName, lastName.toUpperCase()].join(" ");
+// console.log(newName);
+
+// const capitalizeName = (name) => {
+//   const names = name.split(" ");
+//   const array = [];
+//   for (const n of names) {
+//     const newName = n[0].toUpperCase() + n.slice(1).toLowerCase();
+//     array.push(newName);
+//   }
+//   console.log(array.join(" "));
+// };
+
+// capitalizeName("jessica ann smith davis");
+// capitalizeName("anna davis");
+
+// // Padding
+// const message = "Go to gate 23!";
+// console.log(message.padStart(20, "+").padEnd(25, "+"));
+
+// const maskCreditCard = (number) => {
+//   const str = number + "";
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, "*");
+// };
+
+// console.log(maskCreditCard(234234));
+// console.log(maskCreditCard(2141293124));
+// console.log(maskCreditCard(123123123121233));
